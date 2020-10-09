@@ -58,7 +58,10 @@ addEventListener('fetch', event => {
 async function handleRequest(request) {
   // return new Response()
   let url = request.url
-  if (url.substr(url.length - 5) == 'links') {
+  if (
+    url.substr(url.length - 5) == 'links' ||
+    url.substr(url.length - 6) == 'links/'
+  ) {
     return new Response(JSON.stringify(links), {
       headers: { 'content-type': 'application/json;charset=UTF-8' },
     })
